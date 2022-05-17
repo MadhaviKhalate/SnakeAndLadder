@@ -8,11 +8,14 @@ namespace SnakeAndLadder
 {
     internal class SnakeLadderClass
     {
-        int startPosition = 0;
+        Random rand = new Random();
+        int startPosition = 0, number;
         public void startGame()
         {
+            number = rand.Next(1, 7);
             Console.WriteLine("Start playing snake and ladder game");
             Console.WriteLine("Start position " + startPosition);
+            Console.WriteLine("Player get number " + number);
         }
 
     }
