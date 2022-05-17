@@ -9,7 +9,8 @@ namespace SnakeAndLadder
     internal class SnakeLadderClass
     {
         Random rand = new Random();
-        int startPosition, number, check,NO_PLAY=0, LADDER = 1, SNAKE = 2, END_WIN_POSITION = 100;
+        int startPosition, number, check, diceRollCount = 0, NO_PLAY=0, 
+            LADDER = 1, SNAKE = 2, END_WIN_POSITION = 100;
         public void startGame()
         {
             Console.WriteLine("Start playing snake and ladder game");
@@ -40,13 +41,15 @@ namespace SnakeAndLadder
                 {
                     startPosition += NO_PLAY;
                 }
+                diceRollCount++;
+                Console.WriteLine("position after every die roll " + diceRollCount);
             }
-            Console.WriteLine("Current position of player " + startPosition);
+            Console.WriteLine("Current position of player " + startPosition + "\n");
             if (startPosition > 100)
             {
                 startPosition -= number;
-            }    
-
+            }
+            Console.WriteLine(diceRollCount + " number of times dice was rolled");
         }
 
     }
