@@ -9,13 +9,13 @@ namespace SnakeAndLadder
     internal class SnakeLadderClass
     {
         Random rand = new Random();
-        int startPosition, number, check, LADDER = 1, SNAKE = 2, END_WIN_POSITION = 100;
+        int startPosition, number, check,NO_PLAY=0, LADDER = 1, SNAKE = 2, END_WIN_POSITION = 100;
         public void startGame()
         {
             Console.WriteLine("Start playing snake and ladder game");
             Console.WriteLine("Start position " + startPosition);
             
-            for (startPosition = 0; startPosition <= END_WIN_POSITION;)
+            for (startPosition = 0; startPosition < END_WIN_POSITION;)
             {
                 check = rand.Next(0, 3);
                 number = rand.Next(1, 7);
@@ -38,10 +38,14 @@ namespace SnakeAndLadder
                 }
                 else
                 {
-                    Console.WriteLine("NoPlay!!!!");
+                    startPosition += NO_PLAY;
                 }
             }
             Console.WriteLine("Current position of player " + startPosition);
+            if (startPosition > 100)
+            {
+                startPosition -= number;
+            }    
 
         }
 
